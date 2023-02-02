@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+    int m, n, i, j;
+
+    printf("Enter the value of m and n: ");
+    scanf("%d%d", &m, &n);
+
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= 10; j++)
+        {
+            printf("%d x %d = %d\n", m, i, m * i);
+        }
+        printf("\n");
+    }
+    return 0;
+}
