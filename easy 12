@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int is_composite(int num) {
+    if (num <= 1)
+        return 0;
+    for (int i = 2; i < num; i++) {
+        if (num % i == 0)
+            return 1;
+    }
+    return 0;
+}
+
+int count_composite_numbers(int array[], int size) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (is_composite(array[i]))
+            count++;
+    }
+    return count;
+}
+
+int main() {
+    int elements[] = {16, 18, 27, 16, 23, 21, 19};
+    int size = sizeof(elements) / sizeof(elements[0]);
+    int count = count_composite_numbers(elements, size);
+    printf("Number of Composite Numbers: %d\n", count);
+    return 0;
+}
