@@ -1,0 +1,50 @@
+include <stdio.h>
+ #include <math.h>
+ double power(double x, int n) {
+     return pow(x, n);
+ }
+ double add(double x, double n) {
+     return x + n;
+ }
+ double subtract(double x, double n) {
+     return x - n;
+ }
+ double multiply(double x, double n) {
+     return x * n;
+ }
+ double divide(double x, double n) {
+     return x / n;
+ }
+ int main() {
+     double x, n;
+     int choice;
+     printf("Enter two numbers x and n: ");
+     scanf("%lf%lf", &x, &n);
+     printf("Enter your choice:\n");
+     printf("1. Power\n");
+     printf("2. Add\n");
+     printf("3. Subtract\n");
+     printf("4. Multiply\n");
+     printf("5. Divide\n");
+     scanf("%d", &choice);
+     switch (choice) {
+         case 1:
+             printf("The result of %.2lf^%d is %.2lf\n", x, (int)n, power(x, (int)n));
+             break;
+         case 2:
+             printf("The result of %.2lf + %.2lf is %.2lf\n", x, n, add(x, n));
+             break;
+         case 3:
+             printf("The result of %.2lf - %.2lf is %.2lf\n", x, n, subtract(x, n));
+             break;
+         case 4:
+             printf("The result of %.2lf * %.2lf is %.2lf\n", x, n, multiply(x, n));
+             break;
+         case 5:
+             printf("The result of %.2lf / %.2lf is %.2lf\n", x, n, divide(x, n));
+             break;
+         default:
+             printf("Invalid choice.\n");
+     }
+     return 0;
+ }
