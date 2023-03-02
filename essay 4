@@ -1,0 +1,42 @@
+#include <stdio.h>
+ #include <stdbool.h>
+
+ bool is_prime(int num) {
+     if (num < 2) {
+         return false;
+     }
+     for (int i = 2; i < num; i++) {
+         if (num % i == 0) {
+             return false;
+         }
+     }
+     return true;
+ }
+
+ int main() {
+     int n, count = 0, i = 2;
+     printf("Enter a positive integer: ");
+     scanf("%d", &n);
+     printf("First %d prime numbers:\n", n);
+     while (count < n) {
+         if (is_prime(i)) {
+             printf("%d ", i);
+             count++;
+         }
+         i++;
+     }
+     printf("\n");
+     printf("The %dth prime number is: ", n);
+     count = 0;
+     i = 2;
+     while (count < n) {
+         if (is_prime(i)) {
+             count++;
+             if (count == n) {
+                 printf("%d\n", i);
+             }
+         }
+         i++;
+     }
+     return 0;
+ }
