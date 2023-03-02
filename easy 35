@@ -1,0 +1,54 @@
+#include <stdio.h>
+ #include<stdlib.h>
+ #include<ctype.h>
+ #include<string.h>
+ #include<stdbool.h>
+ #define buffer_size 4096
+ bool parse_int(char *string, int *integer);
+ int main() {
+    int integer=0;
+    bool parsed_correct=true;
+     do
+     {
+        char buffer[buffer_size];
+        fgets(buffer,buffer_size,stdin);
+        parsed_correct=parse_int(buffer,&integer);
+        if(!parsed_correct)
+          printf("Must be an Integer Value\n");
+     }
+     while(!parsed_correct);
+
+     printf("Integer: %d\n",integer);
+     return 0;
+ }
+ bool parse_int(char *string, int *integer)
+ {
+     int i=0;
+     while(isspace(string[i])) i++;
+     int length=strlen(string);
+     if(length==i) return false;
+
+     char integer_buffer[buffer_size];
+     int integer_chars=0;
+
+     if(string[i]=='-')
+      {
+        integer_buffer[integer_chars] = '-';
+        integer_chars++;
+        i++;
+
+        if(!isdigit(string[i])) return false;
+     }
+
+     while(i<length && !isspace(string[i]))
+     {
+         if(!isdigit(string[i])) return false;
+         integer_buffer[integer_chars] = string[i];   
+         integer_chars++;
+         i++;
+     }
+     integer_buffer[integer_chars]='\0';
+     while(isspace(string[i])) i++;
+     *integer=atoi(integer_buffer);
+     return true;
+ }
