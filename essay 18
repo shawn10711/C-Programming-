@@ -1,0 +1,25 @@
+#include <stdio.h>
+ using namespace std;
+
+ // Returns the Avg of
+ // first n odd numbers
+ int avg_of_odd_num(int n)
+ {
+
+     // sum of first n odd number
+     int sum = 0;
+     for (int i = 0; i < n; i++)
+         sum += (2 * i + 1);
+
+     // Average of first
+     // n odd numbers
+     return sum / n;
+ }
+
+ // Driver Code
+ int main()
+ {
+     int n = 20;
+     cout << avg_of_odd_num(n);
+     return 0;
+ }
